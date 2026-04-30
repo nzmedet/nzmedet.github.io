@@ -11,11 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #000;
-      --text: #f5f5f7;
-      --muted: #a1a1aa;
-      --line: #242426;
-      --hover: #d4d4d8;
+      --bg: #ffffff;
+      --text: #14151a;
+      --muted: #5f6673;
+      --line: #d5dae3;
+      --hover: #2f3a4d;
     }
 
     * { box-sizing: border-box; }
@@ -25,16 +25,75 @@
       background: var(--bg);
       color: var(--text);
       font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overscroll-behavior: none;
     }
 
     body {
       line-height: 1.4;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        45deg,
+        #aef0f0,
+        #99e7e7,
+        #f2aeb4,
+        #ee9ca4,
+        #f5bfa8,
+        #ebb095,
+        #c7b5f1,
+        #b8a3eb,
+        #aef0f0
+      );
+      background-size: 400% 400%;
+      animation: gradientFlow 90s ease infinite, hueRotation 180s linear infinite;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: transparent;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes hueRotation {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
     }
 
     .page {
       width: min(760px, calc(100% - 40px));
       margin: 0 auto;
       padding: 40px 0 40px;
+      background: transparent;
+      border-radius: 0;
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .page::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
     }
 
     h1 {
@@ -89,6 +148,7 @@
 
     .apps {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -105,8 +165,8 @@
       height: 64px;
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid #2c2c2e;
-      background: #0b0b0c;
+      border: 1px solid #d9deea;
+      background: #ffffff;
     }
 
     .icon img {
@@ -151,6 +211,13 @@
       align-items: center;
       text-decoration: none;
       line-height: 0;
+    }
+
+    .badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .badge-link img {
@@ -205,6 +272,10 @@
         gap: 14px;
       }
 
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
       .app {
         grid-template-columns: 56px 1fr;
         gap: 12px;
@@ -223,6 +294,12 @@
 
       .badge-link img {
         height: 30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        animation: none;
       }
     }
   </style>
@@ -272,9 +349,14 @@
         </a>
         <div class="app-main">
           <div class="app-name"><a href="https://beheard.co.nz/" target="_blank" rel="noreferrer">beheard</a></div>
-          <a class="badge-link" href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noreferrer" aria-label="Download beheard on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
-          </a>
+          <div class="badges">
+            <a class="badge-link" href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noreferrer" aria-label="Download beheard on the App Store">
+              <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
+            </a>
+            <a class="badge-link" href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noreferrer" aria-label="Get beheard on Google Play">
+              <img src="assets/icons/playstore.svg?v=20260430-2" alt="Get it on Google Play" loading="lazy" />
+            </a>
+          </div>
         </div>
       </article>
 
@@ -285,7 +367,7 @@
         <div class="app-main">
           <div class="app-name"><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noreferrer">Nudge - Flatmate Manager</a></div>
           <a class="badge-link" href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noreferrer" aria-label="Download Nudge - Flatmate Manager on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
+            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
           </a>
         </div>
       </article>
@@ -297,7 +379,7 @@
         <div class="app-main">
           <div class="app-name"><a href="https://apps.apple.com/us/app/carl-sagans-cosmic-calendar/id6760458976" target="_blank" rel="noreferrer">Carl Sagan's Cosmic Calendar</a></div>
           <a class="badge-link" href="https://apps.apple.com/us/app/carl-sagans-cosmic-calendar/id6760458976" target="_blank" rel="noreferrer" aria-label="Download Carl Sagan's Cosmic Calendar on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
+            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
           </a>
         </div>
       </article>
@@ -309,7 +391,7 @@
         <div class="app-main">
           <div class="app-name"><a href="https://nzmedet.github.io/audiolog-legal/" target="_blank" rel="noreferrer">Audiolog - Voice Diary</a></div>
           <a class="badge-link" href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noreferrer" aria-label="Download Audiolog - Voice Diary on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
+            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
           </a>
         </div>
       </article>
@@ -321,7 +403,7 @@
         <div class="app-main">
           <div class="app-name"><a href="https://nzmedet.github.io/budget-legal/" target="_blank" rel="noreferrer">Budget - Spending Tracker</a></div>
           <a class="badge-link" href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noreferrer" aria-label="Download Budget - Spending Tracker on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
+            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
           </a>
         </div>
       </article>
@@ -333,7 +415,7 @@
         <div class="app-main">
           <div class="app-name"><a href="https://myday-c6863.web.app/" target="_blank" rel="noreferrer">MyDay - Live Activity Planner</a></div>
           <a class="badge-link" href="https://apps.apple.com/us/app/myday-live-activity-planner/id6758686482" target="_blank" rel="noreferrer" aria-label="Download MyDay - Live Activity Planner on the App Store">
-            <img src="assets/icons/appstore.svg" alt="Download on the App Store" loading="lazy" />
+            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
           </a>
         </div>
       </article>
