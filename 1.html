@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Medet Tleugabyluly designs and builds focused mobile apps for everyday life." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="google-site-verification" content="GrIvL9sIkHrR5XcntmgykehXVXLaQOiAVbVvfr1J-vw" />
+  <meta name="theme-color" content="#08090c" />
+  <title>Medet Tleugabyluly — App Developer — Design 01</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08090c;
+      --surface: #0d0f14;
+      --surface-hover: #12151c;
+      --text: #f4f5f7;
+      --muted: #8d93a1;
+      --line: #252933;
+      --accent: #91f2c3;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+        var(--bg);
+      background-size: 44px 44px;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 20;
+      padding: 10px 14px;
+      background: var(--accent);
+      color: #06100b;
+      font-weight: 700;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0 96px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: var(--mono);
+      font-size: .875rem;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+
+    .wordmark-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(145, 242, 195, .38);
+    }
+
+    .contact-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    .contact-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+
+    .contact-nav a:hover { color: var(--text); }
+
+    .hero {
+      max-width: 820px;
+      padding: clamp(112px, 18vw, 210px) 0 clamp(88px, 12vw, 150px);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: .8125rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(3rem, 8.2vw, 7rem);
+      font-weight: 650;
+      letter-spacing: -.072em;
+      line-height: .94;
+    }
+
+    h1 span {
+      color: var(--muted);
+      font-weight: 480;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      margin: 32px 0 0;
+      color: #bdc1ca;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: .8125rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .75rem;
+    }
+
+    .project-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .project {
+      --delay: 0ms;
+      display: grid;
+      grid-template-columns: 38px 64px minmax(180px, .9fr) minmax(240px, 1.35fr) auto;
+      gap: 22px;
+      align-items: center;
+      min-height: 116px;
+      padding: 20px 16px 20px 8px;
+      border-bottom: 1px solid var(--line);
+      transition: background-color .2s ease, transform .2s ease;
+      animation: reveal .55s cubic-bezier(.2,.75,.25,1) both;
+      animation-delay: var(--delay);
+    }
+
+    .project:hover {
+      background: var(--surface-hover);
+      transform: translateX(4px);
+    }
+
+    .project-index {
+      color: #5f6570;
+      font-family: var(--mono);
+      font-size: .75rem;
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 15px;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 12px 34px rgba(0,0,0,.26);
+    }
+
+    .project-title {
+      min-width: 0;
+    }
+
+    .project-title h3 {
+      margin: 0;
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      font-weight: 620;
+      letter-spacing: -.025em;
+      line-height: 1.3;
+    }
+
+    .project-title a { text-decoration: none; }
+
+    .project-description {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9375rem;
+    }
+
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .platforms a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: #c6cad2;
+      font-family: var(--mono);
+      font-size: .6875rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+    }
+
+    .platforms a:hover {
+      border-color: #4a5260;
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 40px;
+      color: #686e79;
+      font-family: var(--mono);
+      font-size: .6875rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #a9adb6;
+    }
+
+    .availability::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .variant-switcher {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10;
+      display: flex;
+      gap: 3px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(8, 9, 12, .86);
+      box-shadow: 0 14px 38px rgba(0,0,0,.3);
+      backdrop-filter: blur(14px);
+    }
+
+    .variant-switcher a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .75rem;
+      text-decoration: none;
+    }
+
+    .variant-switcher a:hover { color: var(--text); }
+
+    .variant-switcher a[aria-current="page"] {
+      background: var(--accent);
+      color: #07100c;
+      font-weight: 700;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 840px) {
+      .project {
+        grid-template-columns: 28px 56px minmax(0, 1fr);
+        gap: 15px;
+        padding: 19px 8px;
+      }
+
+      .app-icon { width: 56px; height: 56px; border-radius: 13px; }
+      .project-description { grid-column: 3; }
+      .platforms { grid-column: 3; justify-content: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .shell { width: min(100% - 30px, 1080px); padding-top: 20px; }
+      .topbar { align-items: flex-start; }
+      .contact-nav { gap: 12px; }
+      .contact-nav a span { display: none; }
+      .contact-nav a::before { content: attr(data-short); }
+      .hero { padding: 90px 0 80px; }
+      h1 { font-size: clamp(3.15rem, 17vw, 5rem); }
+      .hero-copy { margin-top: 25px; font-size: 1rem; }
+      .section-head p { display: none; }
+      .project { grid-template-columns: 20px 54px minmax(0, 1fr); gap: 12px; }
+      .project-description { font-size: .875rem; }
+      .platforms a { min-height: 40px; }
+      footer { align-items: flex-start; flex-direction: column; padding-bottom: 54px; }
+      .variant-switcher { right: 50%; transform: translateX(50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to apps</a>
+
+  <div class="shell">
+    <header class="topbar">
+      <a class="wordmark" href="1.html" aria-label="Medet Tleugabyluly, home">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span>medet.t</span>
+      </a>
+      <nav class="contact-nav" aria-label="Contact and profiles">
+        <a href="https://www.linkedin.com/in/medett/" target="_blank" rel="noopener noreferrer" data-short="in"><span>linkedin</span></a>
+        <a href="https://stackoverflow.com/users/2308005/medet-tleukabiluly" target="_blank" rel="noopener noreferrer" data-short="so"><span>stack overflow</span></a>
+        <a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio" data-short="email"><span>email</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">Independent app developer</p>
+        <h1 id="hero-title">Small apps. <span>Clear ideas.</span></h1>
+        <p class="hero-copy">I’m Medet Tleugabyluly. I design and build focused products for everyday life—from private voice journals and live planners to tools for shared homes.</p>
+      </section>
+
+      <section id="work" aria-labelledby="work-title">
+        <div class="section-head">
+          <h2 id="work-title">Selected apps</h2>
+          <p>Seven independent releases</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project" style="--delay: 40ms">
+            <span class="project-index">01</span>
+            <img class="app-icon" src="assets/icons/foodlens.png" width="64" height="64" alt="foodlens app icon" />
+            <div class="project-title"><h3><a href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer">foodlens.nz ↗</a></h3></div>
+            <p class="project-description">A visual-first food companion, available on the web.</p>
+            <div class="platforms"><a href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer" aria-label="Open foodlens website">Web</a></div>
+          </article>
+
+          <article class="project" style="--delay: 80ms">
+            <span class="project-index">02</span>
+            <img class="app-icon" src="assets/icons/beheard.png" width="64" height="64" alt="beheard app icon" />
+            <div class="project-title"><h3><a href="https://beheard.co.nz/" target="_blank" rel="noopener noreferrer">beheard ↗</a></h3></div>
+            <p class="project-description">Voice-first conversations that feel human.</p>
+            <div class="platforms">
+              <a href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noopener noreferrer" aria-label="Download beheard on the App Store">iOS</a>
+              <a href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noopener noreferrer" aria-label="Get beheard on Google Play">Android</a>
+            </div>
+          </article>
+
+          <article class="project" style="--delay: 120ms">
+            <span class="project-index">03</span>
+            <img class="app-icon" src="assets/icons/nudge.png" width="64" height="64" alt="Nudge app icon" />
+            <div class="project-title"><h3><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer">Nudge ↗</a></h3></div>
+            <p class="project-description">Split bills, share chores, and keep home life moving.</p>
+            <div class="platforms">
+              <a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer" aria-label="Download Nudge on the App Store">iOS</a>
+              <a href="https://play.google.com/store/apps/details?id=nz.medett.nudge" target="_blank" rel="noopener noreferrer" aria-label="Get Nudge on Google Play">Android</a>
+            </div>
+          </article>
+
+          <article class="project" style="--delay: 160ms">
+            <span class="project-index">04</span>
+            <img class="app-icon" src="assets/icons/cosmic-calendar.png" width="64" height="64" alt="Carl Sagan's Cosmic Calendar app icon" />
+            <div class="project-title"><h3><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer">Cosmic Calendar ↗</a></h3></div>
+            <p class="project-description">The history of the universe, compressed into one year.</p>
+            <div class="platforms"><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer" aria-label="Join Cosmic Calendar on TestFlight">TestFlight</a></div>
+          </article>
+
+          <article class="project" style="--delay: 200ms">
+            <span class="project-index">05</span>
+            <img class="app-icon" src="assets/icons/audiolog.png" width="64" height="64" alt="Audiolog app icon" />
+            <div class="project-title"><h3><a href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer">Audiolog ↗</a></h3></div>
+            <p class="project-description">A private, offline speech-to-text journal.</p>
+            <div class="platforms"><a href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer" aria-label="Download Audiolog on the App Store">iOS</a></div>
+          </article>
+
+          <article class="project" style="--delay: 240ms">
+            <span class="project-index">06</span>
+            <img class="app-icon" src="assets/icons/budget.png" width="64" height="64" alt="Budget app icon" />
+            <div class="project-title"><h3><a href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer">Budget ↗</a></h3></div>
+            <p class="project-description">Simple spending, clearly tracked.</p>
+            <div class="platforms"><a href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer" aria-label="Download Budget on the App Store">iOS</a></div>
+          </article>
+
+          <article class="project" style="--delay: 280ms">
+            <span class="project-index">07</span>
+            <img class="app-icon" src="assets/icons/myday.png" width="64" height="64" alt="MyDay app icon" />
+            <div class="project-title"><h3><a href="https://myday-c6863.web.app/" target="_blank" rel="noopener noreferrer">MyDay ↗</a></h3></div>
+            <p class="project-description">Your day, live on the Lock Screen.</p>
+            <div class="platforms"><a href="https://apps.apple.com/us/app/myday-live-activity-planner/id6758686482" target="_blank" rel="noopener noreferrer" aria-label="Download MyDay on the App Store">iOS</a></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 MEDET TLEUGABYLULY LIMITED</span>
+      <a class="availability" href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">Say hello</a>
+    </footer>
+  </div>
+
+  <nav class="variant-switcher" aria-label="Design variations">
+    <a href="1.html" aria-current="page" aria-label="View design 1">01</a>
+    <a href="2.html" aria-label="View design 2">02</a>
+    <a href="3.html" aria-label="View design 3">03</a>
+    <a href="4.html" aria-label="View design 4">04</a>
+    <a href="5.html" aria-label="View design 5">05</a>
+  </nav>
+
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"20669a9308a346c8a7b2200cf7f67fc9"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

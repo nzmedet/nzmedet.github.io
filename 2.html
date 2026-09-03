@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Medet Tleugabyluly designs and ships thoughtful mobile apps." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="google-site-verification" content="GrIvL9sIkHrR5XcntmgykehXVXLaQOiAVbVvfr1J-vw" />
+  <meta name="theme-color" content="#f1efe8" />
+  <title>Medet Tleugabyluly — App Developer — Design 02</title>
+  <style>
+    :root {
+      --paper: #f1efe8;
+      --ink: #171714;
+      --muted: #67655f;
+      --line: #c9c5bb;
+      --accent: #ef4e2b;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: Arial, Helvetica, ui-sans-serif, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--paper); scroll-behavior: smooth; }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 30;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 700;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .page {
+      width: min(1320px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 24px 0 100px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 4px 0 22px;
+      border-bottom: 1px solid var(--ink);
+      font-size: .8125rem;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .masthead-role { text-align: center; }
+
+    .contact-nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .contact-nav a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .contact-nav a:hover { color: var(--accent); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .5fr);
+      gap: 8vw;
+      align-items: end;
+      min-height: min(680px, 76vh);
+      padding: clamp(82px, 12vw, 170px) 0 52px;
+    }
+
+    h1 {
+      margin: 0 0 -.08em;
+      font-family: var(--serif);
+      font-size: clamp(4.5rem, 11.5vw, 10.8rem);
+      font-weight: 400;
+      letter-spacing: -.075em;
+      line-height: .76;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-note {
+      max-width: 340px;
+      margin: 0;
+      padding-bottom: 5px;
+      font-size: clamp(1rem, 1.45vw, 1.22rem);
+      line-height: 1.55;
+    }
+
+    .hero-note strong { font-weight: 700; }
+
+    .catalogue-head {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding: 16px 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      font-size: .75rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .catalogue-head h2 {
+      margin: 0;
+      font-size: inherit;
+      font-weight: 800;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 120px 84px minmax(240px, 1fr) minmax(220px, .75fr) auto;
+      gap: 24px;
+      align-items: center;
+      min-height: 152px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .24s ease, background-color .24s ease;
+    }
+
+    .project:hover {
+      padding-left: 16px;
+      padding-right: 16px;
+      background: #e8e4da;
+    }
+
+    .number {
+      align-self: start;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 4vw, 4.2rem);
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .icon {
+      width: 76px;
+      height: 76px;
+      border: 1px solid var(--ink);
+      border-radius: 18px;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .project-copy h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3.25vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+
+    .project-copy h3 a { text-decoration: none; }
+    .project-copy h3 a:hover { color: var(--accent); }
+
+    .project-copy p {
+      max-width: 460px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: .9375rem;
+    }
+
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .platforms a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: .6875rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .18s ease, color .18s ease;
+    }
+
+    .platforms a:hover { background: var(--ink); color: var(--paper); }
+
+    .arrow {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font-size: 1.35rem;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease;
+    }
+
+    .arrow:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding-top: 38px;
+      font-size: .6875rem;
+      letter-spacing: .065em;
+      text-transform: uppercase;
+    }
+
+    footer a { text-underline-offset: 4px; }
+
+    .variant-switcher {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10;
+      display: flex;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .variant-switcher a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-right: 1px solid var(--ink);
+      font-size: .6875rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .variant-switcher a:last-child { border-right: 0; }
+    .variant-switcher a:hover { background: #e2ded3; }
+    .variant-switcher a[aria-current="page"] { background: var(--accent); color: #fff; }
+
+    @media (max-width: 980px) {
+      .page { width: min(100% - 40px, 1320px); }
+      .hero { grid-template-columns: 1fr; gap: 50px; min-height: 620px; }
+      .project { grid-template-columns: 62px 70px minmax(0, 1fr) auto; gap: 18px; }
+      .number { font-size: 2.6rem; }
+      .icon { width: 64px; height: 64px; border-radius: 15px; }
+      .project-copy { grid-column: 3; }
+      .platforms { grid-column: 3; }
+      .arrow { grid-column: 4; grid-row: 1 / span 2; }
+    }
+
+    @media (max-width: 680px) {
+      .page { width: min(100% - 28px, 1320px); padding-top: 18px; }
+      .masthead { grid-template-columns: 1fr auto; }
+      .masthead-role { display: none; }
+      .contact-nav a:not(:last-child) { display: none; }
+      .hero { min-height: 560px; padding-top: 70px; }
+      h1 { font-size: clamp(4rem, 22vw, 7rem); line-height: .8; }
+      .hero-note { max-width: 300px; }
+      .catalogue-head { grid-template-columns: 60px 1fr; }
+      .catalogue-head span:last-child { display: none; }
+      .project {
+        grid-template-columns: 44px 58px minmax(0, 1fr);
+        gap: 12px;
+        min-height: 0;
+        padding: 25px 0;
+      }
+      .project:hover { padding-left: 0; padding-right: 0; background: transparent; }
+      .number { font-size: 1.8rem; }
+      .icon { width: 52px; height: 52px; border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); }
+      .project-copy { grid-column: 3; }
+      .project-copy h3 { font-size: clamp(1.55rem, 8vw, 2.3rem); }
+      .project-copy p { font-size: .875rem; }
+      .platforms { grid-column: 3; }
+      .platforms a { min-height: 40px; }
+      .arrow { display: none; }
+      footer { grid-template-columns: 1fr; padding-bottom: 58px; }
+      .variant-switcher { right: 50%; transform: translateX(50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to apps</a>
+
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="2.html">Medet Tleugabyluly</a>
+      <span class="masthead-role">Independent app developer</span>
+      <nav class="contact-nav" aria-label="Contact and profiles">
+        <a href="https://www.linkedin.com/in/medett/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://stackoverflow.com/users/2308005/medet-tleukabiluly" target="_blank" rel="noopener noreferrer">Stack Overflow</a>
+        <a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Apps, made<br />to be <em>used.</em></h1>
+        <p class="hero-note"><strong>I design, build, and ship my own products.</strong> Simple tools for planning, reflection, connection, money, food, and life at home.</p>
+      </section>
+
+      <section id="work" aria-labelledby="work-title">
+        <div class="catalogue-head">
+          <h2 id="work-title">Index</h2>
+          <span>Selected independent releases</span>
+          <span>2024—2026</span>
+        </div>
+
+        <article class="project">
+          <span class="number">01</span>
+          <img class="icon" src="assets/icons/foodlens.png" width="76" height="76" alt="foodlens app icon" />
+          <div class="project-copy"><h3><a href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer">foodlens.nz</a></h3><p>A visual-first food companion, available on the web.</p></div>
+          <div class="platforms"><a href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer">Web</a></div>
+          <a class="arrow" href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer" aria-label="Open foodlens website">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">02</span>
+          <img class="icon" src="assets/icons/beheard.png" width="76" height="76" alt="beheard app icon" />
+          <div class="project-copy"><h3><a href="https://beheard.co.nz/" target="_blank" rel="noopener noreferrer">beheard</a></h3><p>Voice-first conversations that feel human.</p></div>
+          <div class="platforms"><a href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noopener noreferrer">iOS</a><a href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noopener noreferrer">Android</a></div>
+          <a class="arrow" href="https://beheard.co.nz/" target="_blank" rel="noopener noreferrer" aria-label="Open beheard website">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">03</span>
+          <img class="icon" src="assets/icons/nudge.png" width="76" height="76" alt="Nudge app icon" />
+          <div class="project-copy"><h3><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer">Nudge</a></h3><p>Split bills, share chores, and keep home life moving.</p></div>
+          <div class="platforms"><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer">iOS</a><a href="https://play.google.com/store/apps/details?id=nz.medett.nudge" target="_blank" rel="noopener noreferrer">Android</a></div>
+          <a class="arrow" href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer" aria-label="Open Nudge on the App Store">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">04</span>
+          <img class="icon" src="assets/icons/cosmic-calendar.png" width="76" height="76" alt="Carl Sagan's Cosmic Calendar app icon" />
+          <div class="project-copy"><h3><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer">Cosmic Calendar</a></h3><p>The history of the universe, compressed into one year.</p></div>
+          <div class="platforms"><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer">TestFlight</a></div>
+          <a class="arrow" href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer" aria-label="Join Cosmic Calendar on TestFlight">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">05</span>
+          <img class="icon" src="assets/icons/audiolog.png" width="76" height="76" alt="Audiolog app icon" />
+          <div class="project-copy"><h3><a href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer">Audiolog</a></h3><p>A private, offline speech-to-text journal.</p></div>
+          <div class="platforms"><a href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer">iOS</a></div>
+          <a class="arrow" href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer" aria-label="Download Audiolog on the App Store">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">06</span>
+          <img class="icon" src="assets/icons/budget.png" width="76" height="76" alt="Budget app icon" />
+          <div class="project-copy"><h3><a href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer">Budget</a></h3><p>Simple spending, clearly tracked.</p></div>
+          <div class="platforms"><a href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer">iOS</a></div>
+          <a class="arrow" href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer" aria-label="Download Budget on the App Store">↗</a>
+        </article>
+
+        <article class="project">
+          <span class="number">07</span>
+          <img class="icon" src="assets/icons/myday.png" width="76" height="76" alt="MyDay app icon" />
+          <div class="project-copy"><h3><a href="https://myday-c6863.web.app/" target="_blank" rel="noopener noreferrer">MyDay</a></h3><p>Your day, live on the Lock Screen.</p></div>
+          <div class="platforms"><a href="https://apps.apple.com/us/app/myday-live-activity-planner/id6758686482" target="_blank" rel="noopener noreferrer">iOS</a></div>
+          <a class="arrow" href="https://myday-c6863.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Open MyDay website">↗</a>
+        </article>
+      </section>
+    </main>
+
+    <footer><span>© 2026 MEDET TLEUGABYLULY LIMITED</span><a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">Start a conversation ↗</a></footer>
+  </div>
+
+  <nav class="variant-switcher" aria-label="Design variations">
+    <a href="1.html" aria-label="View design 1">01</a><a href="2.html" aria-current="page" aria-label="View design 2">02</a><a href="3.html" aria-label="View design 3">03</a><a href="4.html" aria-label="View design 4">04</a><a href="5.html" aria-label="View design 5">05</a>
+  </nav>
+
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"20669a9308a346c8a7b2200cf7f67fc9"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
