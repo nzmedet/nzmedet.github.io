@@ -3,447 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Medet Tleugabyluly - software developer based in Auckland, New Zealand." />
+  <meta name="description" content="Mobile apps by Medet Tleugabyluly." />
   <meta name="google-site-verification" content="GrIvL9sIkHrR5XcntmgykehXVXLaQOiAVbVvfr1J-vw" />
-  <title>Medet Tleugabyluly</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#050505" />
+  <link rel="canonical" href="https://tsx.nz/" />
+  <title>tsx — Medet Tleugabyluly</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #14151a;
-      --muted: #5f6673;
-      --line: #d5dae3;
-      --hover: #2f3a4d;
+      color-scheme: dark;
+      --bg: #050505;
+      --text: #fafafa;
+      --muted: #777;
+      --hover: #22d3ee;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
 
     * { box-sizing: border-box; }
+    html { background: var(--bg); }
 
-    html, body {
+    body {
+      min-width: 320px;
+      min-height: 100vh;
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      overscroll-behavior: none;
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body {
-      line-height: 1.4;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(
-        45deg,
-        #aef0f0,
-        #99e7e7,
-        #f2aeb4,
-        #ee9ca4,
-        #f5bfa8,
-        #ebb095,
-        #c7b5f1,
-        #b8a3eb,
-        #aef0f0
-      );
-      background-size: 400% 400%;
-      animation: gradientFlow 90s ease infinite, hueRotation 180s linear infinite;
-    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--hover); outline-offset: 4px; }
 
-    body::before {
-      content: "";
+    .skip-link {
       position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: transparent;
+      top: 12px;
+      left: 12px;
+      z-index: 5;
+      padding: 8px 10px;
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-160%);
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background: transparent;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes hueRotation {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
+    .skip-link:focus { transform: translateY(0); }
 
     .page {
-      width: min(760px, calc(100% - 40px));
+      width: min(420px, calc(100% - 40px));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       margin: 0 auto;
-      padding: 40px 0 40px;
-      background: transparent;
-      border-radius: 0;
-      position: relative;
-      z-index: 1;
-      height: 100vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      padding: 72px 0 42px;
     }
 
-    .page::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-      display: none;
+    .tsx-mark {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 22px;
+      color: var(--text);
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: -.04em;
+      text-decoration: none;
     }
+
+    .tsx-mark__punct { color: #555; }
+    .tsx-mark__slash { color: var(--hover); }
+    .tsx-mark:hover .tsx-mark__punct { color: var(--muted); }
 
     h1 {
       margin: 0;
-      font-size: clamp(20px, 2.2vw, 28px);
-      line-height: 1.2;
-      font-weight: 400;
-      letter-spacing: -0.01em;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -.04em;
     }
 
-    .subtitle {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 400;
-    }
+    .role { margin: 5px 0 0; color: var(--muted); }
 
-    .social {
-      margin-top: 18px;
+    .contacts {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+      gap: 8px 16px;
+      margin-top: 22px;
+      font-size: .875rem;
     }
 
-    .social a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text);
+    .contacts a,
+    .platforms a {
+      color: var(--muted);
       text-decoration: none;
-      font-size: 14px;
+    }
+
+    .contacts a:hover,
+    .platforms a:hover { color: var(--text); }
+
+    .apps { margin-top: 68px; }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: .75rem;
       font-weight: 400;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    .social a:hover {
-      color: var(--hover);
-    }
-
-    .social svg {
-      width: 16px;
-      height: 16px;
-      opacity: 0.9;
-      flex-shrink: 0;
-    }
-
-    .divider {
-      border: 0;
-      border-top: 1px solid var(--line);
-      margin: 18px 0 10px;
-    }
-
-    .apps-intro {
-      margin: 0 0 12px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: #5a6477;
-    }
-
-    .apps {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .app {
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 6px 0;
-    }
-
-    .icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #d9deea;
-      background: #ffffff;
-    }
-
-    .icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .icon-link {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-      line-height: 0;
-    }
-
-    .app-main {
-      min-width: 0;
-      align-self: center;
-    }
+    .app-list { margin: 0; padding: 0; list-style: none; }
+    .app { margin: 0 0 10px; }
 
     .app-name {
-      margin: 2px 0 6px;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      color: var(--text);
-    }
-
-    .app-name a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .app-name a:hover {
-      color: var(--hover);
-    }
-
-    .badge-link {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      line-height: 0;
-    }
-
-    .badges {
+      min-height: 44px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .app-name span:last-child { color: #444; }
+    .app-name:hover { color: var(--hover); }
+    .app-name:hover span:last-child { color: var(--hover); }
+
+    .platforms {
+      display: flex;
       flex-wrap: wrap;
-    }
-
-    .badge-link img {
-      display: block;
-      height: 32px;
-      width: auto;
-    }
-
-    .text-link {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 400;
-    }
-
-    .text-link:hover {
-      color: var(--hover);
-    }
-
-    .inline-open {
-      display: inline-block;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      margin-top: 2px;
-    }
-
-    .inline-open:hover {
-      color: var(--text);
+      gap: 7px;
+      margin-top: 3px;
+      color: #444;
+      font-size: .75rem;
     }
 
     footer {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      text-align: center;
+      margin-top: 54px;
+      color: #777;
+      font-size: .6875rem;
+      line-height: 1.6;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
       .page {
-        width: calc(100% - 28px);
-        padding-top: 24px;
+        width: min(100% - 32px, 420px);
+        justify-content: flex-start;
+        padding-top: 42px;
       }
 
-      .subtitle {
-        font-size: 15px;
-      }
-
-      .social {
-        gap: 14px;
-      }
-
-      .apps {
-        grid-template-columns: 1fr;
-      }
-
-      .app {
-        grid-template-columns: 56px 1fr;
-        gap: 12px;
-      }
-
-      .icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-      }
-
-      .app-name {
-        font-size: 15px;
-        margin-top: 0;
-      }
-
-      .badge-link img {
-        height: 30px;
-      }
+      .apps { margin-top: 56px; }
+      .platforms a { min-height: 34px; display: inline-flex; align-items: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      body {
-        animation: none;
-      }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#apps">Skip to apps</a>
   <main class="page">
     <header>
-      <p>Medet Tleugabyluly</p>
-      <p class="subtitle">Software developer based in Auckland</p>
-
-      <nav class="social" aria-label="Profile links">
-        <a href="https://stackoverflow.com/users/2308005/medet-tleukabiluly" target="_blank" rel="noreferrer" aria-label="Stack Overflow">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.473 20.323v-6.04h2.012v8.052H4.512v-8.052h2.012v6.04h10.949Zm-8.838-2.012h6.826v-2.012H8.635v2.012Zm.419-4.574 6.695 1.402.414-1.968-6.694-1.402-.415 1.968Zm.877-3.245 6.207 2.894.85-1.824-6.207-2.895-.85 1.825Zm1.736-3.45 5.265 4.37 1.287-1.55-5.265-4.37-1.287 1.55Zm3.399-3.724-1.612 1.205 4.092 5.477 1.612-1.204-4.092-5.478Z"/>
-          </svg>
-          <span>Stack Overflow</span>
-        </a>
-
-        <a href="https://www.linkedin.com/in/medett/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.603 0 4.268 2.371 4.268 5.455v6.286ZM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126ZM7.114 20.452H3.558V9h3.556v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/>
-          </svg>
-          <span>LinkedIn</span>
-        </a>
-
-        <a id="email-link" href="#" aria-label="Email">
-          <span>Email</span>
-        </a>
+      <a class="tsx-mark" href="/" aria-label="tsx home" title="TypeScript JSX">
+        <span class="tsx-mark__punct" aria-hidden="true">&lt;</span><span>tsx</span><span class="tsx-mark__slash" aria-hidden="true"> /</span><span class="tsx-mark__punct" aria-hidden="true">&gt;</span>
+      </a>
+      <h1>medet</h1>
+      <p class="role">builds mobile apps</p>
+      <nav class="contacts" aria-label="Contact and profiles">
+        <a href="https://www.linkedin.com/in/medett/" target="_blank" rel="noopener noreferrer">linkedin</a>
+        <a href="https://stackoverflow.com/users/2308005/medet-tleukabiluly" target="_blank" rel="noopener noreferrer">stack overflow</a>
+        <a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">email</a>
       </nav>
     </header>
 
-    <hr class="divider" aria-hidden="true" />
-
-    <p class="apps-intro">Personal projects I design and build in my own time.</p>
-
-    <section class="apps" aria-label="Apps">
-      <article class="app">
-        <a class="icon-link" href="https://foodlens.nz/" target="_blank" rel="noreferrer" aria-label="Open foodlens.nz website">
-          <div class="icon"><img src="assets/icons/foodlens.png" alt="foodlens icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://foodlens.nz/" target="_blank" rel="noreferrer">foodlens.nz</a></div>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://beheard.co.nz/" target="_blank" rel="noreferrer" aria-label="Open beheard website">
-          <div class="icon"><img src="assets/icons/beheard.png" alt="beheard icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://beheard.co.nz/" target="_blank" rel="noreferrer">beheard</a></div>
-          <div class="badges">
-            <a class="badge-link" href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noreferrer" aria-label="Download beheard on the App Store">
-              <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
-            </a>
-            <a class="badge-link" href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noreferrer" aria-label="Get beheard on Google Play">
-              <img src="assets/icons/playstore.svg?v=20260430-2" alt="Get it on Google Play" loading="lazy" />
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noreferrer" aria-label="Open Nudge - Flatmate Manager on the App Store">
-          <div class="icon"><img src="assets/icons/nudge.png" alt="Nudge - Flatmate Manager icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noreferrer">Nudge - Flatmate Manager</a></div>
-          <div class="badges">
-            <a class="badge-link" href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noreferrer" aria-label="Download Nudge - Flatmate Manager on the App Store">
-              <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
-            </a>
-            <a class="badge-link" href="https://play.google.com/store/apps/details?id=nz.medett.nudge" target="_blank" rel="noreferrer" aria-label="Get Nudge - Flatmate Manager on Google Play">
-              <img src="assets/icons/playstore.svg?v=20260430-2" alt="Get it on Google Play" loading="lazy" />
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noreferrer" aria-label="Open Carl Sagan's Cosmic Calendar on TestFlight">
-          <div class="icon"><img src="assets/icons/cosmic-calendar.png" alt="Carl Sagan's Cosmic Calendar icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noreferrer">Carl Sagan's Cosmic Calendar</a></div>
-          <a class="badge-link" href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noreferrer" aria-label="Join Carl Sagan's Cosmic Calendar on TestFlight">
-            <img src="assets/icons/testflight.png" alt="Join on TestFlight" loading="lazy" />
-          </a>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://nzmedet.github.io/audiolog-legal/" target="_blank" rel="noreferrer" aria-label="Open Audiolog legal page">
-          <div class="icon"><img src="assets/icons/audiolog.png" alt="Audiolog icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://nzmedet.github.io/audiolog-legal/" target="_blank" rel="noreferrer">Audiolog - Voice Diary</a></div>
-          <a class="badge-link" href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noreferrer" aria-label="Download Audiolog - Voice Diary on the App Store">
-            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
-          </a>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://nzmedet.github.io/budget-legal/" target="_blank" rel="noreferrer" aria-label="Open Budget legal page">
-          <div class="icon"><img src="assets/icons/budget.png" alt="Budget icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://nzmedet.github.io/budget-legal/" target="_blank" rel="noreferrer">Budget - Spending Tracker</a></div>
-          <a class="badge-link" href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noreferrer" aria-label="Download Budget - Spending Tracker on the App Store">
-            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
-          </a>
-        </div>
-      </article>
-
-      <article class="app">
-        <a class="icon-link" href="https://myday-c6863.web.app/" target="_blank" rel="noreferrer" aria-label="Open MyDay website">
-          <div class="icon"><img src="assets/icons/myday.png" alt="MyDay icon" loading="lazy" /></div>
-        </a>
-        <div class="app-main">
-          <div class="app-name"><a href="https://myday-c6863.web.app/" target="_blank" rel="noreferrer">MyDay - Live Activity Planner</a></div>
-          <a class="badge-link" href="https://apps.apple.com/us/app/myday-live-activity-planner/id6758686482" target="_blank" rel="noreferrer" aria-label="Download MyDay - Live Activity Planner on the App Store">
-            <img src="assets/icons/appstore.svg?v=20260430-1" alt="Download on the App Store" loading="lazy" />
-          </a>
-        </div>
-      </article>
+    <section class="apps" id="apps" aria-labelledby="apps-title">
+      <h2 id="apps-title">Apps</h2>
+      <ul class="app-list">
+        <li class="app"><a class="app-name" href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer"><span>foodlens.nz</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer">website</a></div></li>
+        <li class="app"><a class="app-name" href="https://beheard.co.nz/" target="_blank" rel="noopener noreferrer"><span>beheard</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noopener noreferrer">app store</a><span>/</span><a href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noopener noreferrer">google play</a></div></li>
+        <li class="app"><a class="app-name" href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer"><span>Nudge</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer">app store</a><span>/</span><a href="https://play.google.com/store/apps/details?id=nz.medett.nudge" target="_blank" rel="noopener noreferrer">google play</a></div></li>
+        <li class="app"><a class="app-name" href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer"><span>Cosmic Calendar</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://testflight.apple.com/join/qG3vVDtM" target="_blank" rel="noopener noreferrer">testflight</a></div></li>
+        <li class="app"><a class="app-name" href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer"><span>Audiolog</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://apps.apple.com/us/app/audiolog-voice-diary/id6759208997" target="_blank" rel="noopener noreferrer">app store</a></div></li>
+        <li class="app"><a class="app-name" href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer"><span>Budget</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://apps.apple.com/us/app/budget-spending-tracker/id6479639999" target="_blank" rel="noopener noreferrer">app store</a></div></li>
+        <li class="app"><a class="app-name" href="https://myday-c6863.web.app/" target="_blank" rel="noopener noreferrer"><span>MyDay</span><span aria-hidden="true">↗</span></a><div class="platforms"><a href="https://apps.apple.com/us/app/myday-live-activity-planner/id6758686482" target="_blank" rel="noopener noreferrer">app store</a></div></li>
+      </ul>
     </section>
 
-    <footer>© 2026 MEDET TLEUGABYLULY LIMITED</footer>
+    <footer>© 2026 Medet Tleugabyluly Limited</footer>
   </main>
 
-  <script>
-    const emailUser = "nzmedet";
-    const emailDomain = "gmail.com";
-    document.getElementById("email-link").href =
-      `mailto:${emailUser}@${emailDomain}?subject=Hello%20from%20your%20portfolio`;
-  </script>
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "20669a9308a346c8a7b2200cf7f67fc9"}'></script><!-- End Cloudflare Web Analytics -->
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"20669a9308a346c8a7b2200cf7f67fc9"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
