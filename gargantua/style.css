@@ -50,6 +50,7 @@ h1 { position: relative; z-index: 1; margin-top: 20px; padding-left: .13em; font
 .section-intro { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 38px; }
 .section-intro h2 { margin-top: 14px; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.15; letter-spacing: -.045em; }
 .section-intro > p { max-width: 355px; color: var(--muted); }
+.mac-gallery { width: min(100%, 660px); margin-inline: auto; }
 .mac-shot { padding: 12px; border: 1px solid #393632; border-radius: 16px; background: #141311; }
 .mac-shot img { width: 100%; border-radius: 7px; }
 figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 17px; font-size: 14px; }
