@@ -1,2 +1,162 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gargantua — Support</title><meta name="description" content="Support for Gargantua, a native black hole viewer for Apple silicon Macs."><style>:root{color-scheme:dark}body{margin:0;background:#08090b;color:#eee8dc;font:17px/1.7 system-ui,sans-serif}main{max-width:720px;margin:70px auto;padding:0 24px}a{color:#edb66d}h1{font-size:42px;letter-spacing:.08em;margin-bottom:4px}h2{margin-top:36px;font-size:22px}.muted{color:#a6a39d}footer{margin:48px 0;font-size:14px}</style></head><body><main><a href="/">tsx.nz</a><h1>GARGANTUA</h1><p class="muted">A cinematic black hole viewer for your Mac.</p><p>Explore glowing gas and gravitational lensing, frame a view, and save it as a wallpaper. Gargantua is an artistic visualization inspired by black hole physics.</p><h2>Getting started</h2><p>Requires an Apple silicon Mac running macOS 13 or later.</p><ul><li>Left-click and drag to orbit, with unlimited vertical rotation.</li><li>Right-click and drag to pan.</li><li>Pinch or scroll to zoom.</li><li>Reset View recenters the camera.</li><li>Use the toolbar to select 30 or 60 FPS and change visual quality.</li><li>Press H to hide the interface, F for fullscreen, or R to reset.</li></ul><h2>Save a wallpaper</h2><p>Click Screenshot to save a clean PNG without the interface. Finder reveals the saved image. You can copy it elsewhere or select it in macOS Wallpaper settings.</p><h2>Performance</h2><p>Rendering a black hole uses your GPU. The default 30 FPS setting reduces the workload. Choose Performance quality for a lighter experience. Rendering pauses when the app is in the background.</p><h2>Contact</h2><p>For questions or problems, email <a href="mailto:nzmedet@gmail.com">nzmedet@gmail.com</a>. Include your macOS version, Mac model, and what happened. Please avoid sending sensitive information.</p><footer><a href="privacy.html">Privacy policy</a> · MEDET TLEUGABYLULY LIMITED</footer></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050505" />
+  <title>Gargantua — A black hole. All your screens.</title>
+  <meta name="description" content="Explore a cinematic black hole on Mac, iPhone, and iPad. Gargantua brings gravitational lensing and glowing gas to your screen. $4.99. Buy once, use across all three." />
+  <link rel="canonical" href="https://tsx.nz/gargantua/" />
+  <link rel="stylesheet" href="style.css?v=4" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="home" href="/" aria-label="tsx home">&lt;tsx<span> /</span>&gt;</a>
+    <nav aria-label="Main navigation">
+      <a href="#experience">Explore</a>
+      <a href="#support">Support</a>
+      <a class="nav-buy" href="#purchase">Get the app <span aria-hidden="true">&nbsp;↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="app-title">
+      <p class="eyebrow">A black hole. All your screens.</p>
+      <h1 id="app-title">GARGANTUA</h1>
+      <p class="hero-subtitle">A cinematic black hole viewer.</p>
+      <div class="hero-art">
+        <video id="black-hole-video" width="1920" height="1246" autoplay muted loop playsinline preload="metadata" poster="images/black-hole.jpg" aria-label="An animated view of glowing gas orbiting a black hole in Gargantua.">
+          <source src="images/black-hole.mp4" type="video/mp4" />
+          <img src="images/black-hole.jpg" width="2000" height="1250" alt="Glowing gas surrounds a black hole in Gargantua." />
+        </video>
+        <button class="motion-toggle" type="button" aria-controls="black-hole-video" hidden>Pause animation</button>
+      </div>
+      <div class="hero-bottom">
+        <p>Orbit the darkness. Follow the light.<br />Explore a black hole from your own point of view.</p>
+        <div class="store-links">
+          <a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" width="135" height="40" alt="View Gargantua on the App Store" /></a>
+          <a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/macstore.svg" width="156" height="40" alt="View Gargantua on the Mac App Store" /></a>
+        </div>
+        <p class="purchase-note"><strong>Available on Mac, iPhone, and iPad</strong></p>
+      </div>
+    </section>
+
+    <section class="purchase-band wrap" id="purchase" aria-labelledby="purchase-title">
+      <div>
+        <h2 id="purchase-title">Buy once. Explore everywhere.</h2>
+        <p>One purchase for your Mac, iPhone, and iPad.</p>
+      </div>
+      <div class="price">$4.99</div>
+    </section>
+
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">Your own perspective</p>
+          <h2 id="experience-title">Space to get lost in.</h2>
+        </div>
+        <p>Glowing gas. Light bent by gravity. Move around the scene and watch a familiar silhouette become something new.</p>
+      </div>
+      <figure>
+        <div class="mac-shot"><img src="images/mac.jpg" width="1280" height="800" loading="lazy" alt="Gargantua on Mac with the black hole and its camera, quality, and screenshot controls." /></div>
+        <figcaption>Gargantua on Mac <span>A bigger view of the unknown.</span></figcaption>
+      </figure>
+      <div class="mobile-gallery">
+        <figure>
+          <div class="mobile-stage iphone"><img src="images/iphone.jpg" width="1600" height="736" loading="lazy" alt="The iPhone version of Gargantua in landscape, with orbit, zoom, and screenshot controls." /></div>
+          <figcaption>Gargantua on iPhone <span>A little escape, anywhere.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="mobile-stage ipad"><img src="images/ipad.jpg" width="1600" height="1200" loading="lazy" alt="The iPad version of Gargantua showing a glowing black hole above its touch controls." /></div>
+          <figcaption>Gargantua on iPad <span>Reach out. Change your view.</span></figcaption>
+        </figure>
+      </div>
+      <div class="features">
+        <article>
+          <span class="feature-number">01 / EXPLORE</span>
+          <h3>Find your angle.</h3>
+          <p>Orbit, pan, and zoom to frame the scene. Get close to the glowing disk or pull back and take it all in.</p>
+        </article>
+        <article>
+          <span class="feature-number">02 / CAPTURE</span>
+          <h3>Keep the view.</h3>
+          <p>Capture a clean image without the controls. Turn a moment of exploration into your next wallpaper.</p>
+        </article>
+        <article>
+          <span class="feature-number">03 / MAKE IT YOURS</span>
+          <h3>Set your pace.</h3>
+          <p>Adjust visual quality and frame rate to suit your device. Hide the interface and let the scene fill your screen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap support-layout" id="support" aria-labelledby="support-title">
+      <div class="support-heading">
+        <p class="eyebrow">Mission support</p>
+        <h2 id="support-title">A few things<br />before you drift off.</h2>
+        <p>Need a hand? Send your device model, operating system version, and a short description of what happened.</p>
+        <a href="mailto:nzmedet@gmail.com">nzmedet@gmail.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="questions">
+        <details>
+          <summary>How do I explore on iPhone and iPad?</summary>
+          <div class="answer"><p>Drag with one finger to orbit, use two fingers to pan, and pinch to zoom. Tap Reset View to recenter the camera. The on-screen toolbar also lets you change quality, frame rate, and hide the interface.</p></div>
+        </details>
+        <details>
+          <summary>What are the Mac controls?</summary>
+          <div class="answer">
+            <ul>
+              <li>Left-click and drag to orbit, with unlimited vertical rotation.</li>
+              <li>Right-click and drag to pan.</li>
+              <li>Pinch or scroll to zoom.</li>
+              <li>Use Reset View to recenter the camera.</li>
+              <li>Press <kbd>H</kbd> to hide the interface, <kbd>F</kbd> for fullscreen, or <kbd>R</kbd> to reset.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>How do I capture a wallpaper?</summary>
+          <div class="answer"><p>Choose Screenshot to capture a clean image without the interface.</p><p>On Mac, Gargantua saves a PNG and reveals it in Finder. Copy it wherever you like or select it in macOS Wallpaper settings.</p></div>
+        </details>
+        <details>
+          <summary>Which devices are supported?</summary>
+          <div class="answer"><p>Gargantua is built for Mac, iPhone, and iPad. The Mac version requires Apple silicon and macOS 13 or later. Check the App Store listing for compatibility with your iPhone or iPad.</p></div>
+        </details>
+        <details>
+          <summary>Can I reduce the graphics workload?</summary>
+          <div class="answer"><p>Rendering a black hole uses your device’s GPU. Choose 30 FPS and Performance quality for a lighter experience. On Mac, rendering pauses when the app is in the background.</p></div>
+        </details>
+        <details>
+          <summary>Is this a scientific simulation?</summary>
+          <div class="answer"><p>Gargantua is an artistic visualization inspired by black hole physics, including gravitational lensing and the glow of an accretion disk.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer wrap">
+    <p>© 2026 MEDET TLEUGABYLULY LIMITED</p>
+    <div><a href="privacy.html">Privacy policy</a><a href="/">More apps <span aria-hidden="true">↗</span></a></div>
+  </footer>
+  <script>
+    const video = document.querySelector('#black-hole-video');
+    const motionToggle = document.querySelector('.motion-toggle');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotionLabel = () => {
+      motionToggle.textContent = video.paused ? 'Play animation' : 'Pause animation';
+    };
+    if (reducedMotion.matches) video.pause();
+    reducedMotion.addEventListener('change', event => {
+      if (event.matches) video.pause();
+    });
+    video.addEventListener('play', updateMotionLabel);
+    video.addEventListener('pause', updateMotionLabel);
+    motionToggle.addEventListener('click', () => {
+      if (video.paused) video.play().catch(updateMotionLabel);
+      else video.pause();
+    });
+    updateMotionLabel();
+    motionToggle.hidden = false;
+  </script>
+</body>
+</html>
