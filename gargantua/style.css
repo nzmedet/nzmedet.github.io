@@ -120,11 +120,6 @@ kbd { font: inherit; color: var(--text); }
  .site-footer { flex-direction: column; gap: 12px; }
 }
 
-.motion-toggle { position: absolute; z-index: 2; right: 24px; bottom: 42px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 24px; background: #050505c9; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
-.motion-toggle:hover { color: var(--text); border-color: var(--accent); }
-.motion-toggle[hidden] { display: none; }
-@media (max-width: 540px) { .motion-toggle { right: 16px; bottom: 14px; } }
-
 .hero-art video {
   -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 62%, transparent 100%);
   mask-image: radial-gradient(ellipse closest-side at center, #000 62%, transparent 100%);

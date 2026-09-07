@@ -7,7 +7,7 @@
   <title>Gargantua — A black hole. All your screens.</title>
   <meta name="description" content="Explore a cinematic black hole on Mac, iPhone, and iPad. Gargantua brings gravitational lensing and glowing gas to your screen. $4.99. Buy once, use across all three." />
   <link rel="canonical" href="https://tsx.nz/gargantua/" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -30,7 +30,6 @@
           <source src="images/black-hole.mp4?v=2" type="video/mp4" />
           <img src="images/black-hole.jpg" width="2000" height="1250" alt="Glowing gas surrounds a black hole in Gargantua." />
         </video>
-        <button class="motion-toggle" type="button" aria-controls="black-hole-video" hidden>Pause animation</button>
       </div>
       <div class="hero-bottom">
         <p>Orbit the darkness. Follow the light.<br />Explore a black hole from your own point of view.</p>
@@ -157,23 +156,11 @@
   </footer>
   <script>
     const video = document.querySelector('#black-hole-video');
-    const motionToggle = document.querySelector('.motion-toggle');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updateMotionLabel = () => {
-      motionToggle.textContent = video.paused ? 'Play animation' : 'Pause animation';
-    };
     if (reducedMotion.matches) video.pause();
     reducedMotion.addEventListener('change', event => {
       if (event.matches) video.pause();
     });
-    video.addEventListener('play', updateMotionLabel);
-    video.addEventListener('pause', updateMotionLabel);
-    motionToggle.addEventListener('click', () => {
-      if (video.paused) video.play().catch(updateMotionLabel);
-      else video.pause();
-    });
-    updateMotionLabel();
-    motionToggle.hidden = false;
   </script>
 </body>
 </html>
