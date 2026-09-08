@@ -5,7 +5,7 @@
   --muted: #aaa6a0;
   --accent: #e8b88c;
   --line: #292622;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Saira", system-ui, sans-serif;
   background: var(--background);
   color: var(--text);
   font-synthesis: none;
@@ -28,7 +28,7 @@ nav { display: flex; align-items: center; gap: 30px; font-size: 14px; }
 nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
 nav .nav-buy { border-bottom: 1px solid var(--accent); color: var(--accent); }
 .hero { text-align: center; padding-top: 52px; overflow: hidden; }
-.eyebrow { color: var(--accent); font: 12px/1.5 "SFMono-Regular", Consolas, monospace; letter-spacing: .17em; text-transform: uppercase; }
+.eyebrow { color: var(--accent); font-size: 12px; line-height: 1.5; letter-spacing: .17em; text-transform: uppercase; }
 h1 { position: relative; z-index: 1; margin-top: 20px; padding-left: .13em; font-size: clamp(35px, 8.6vw, 116px); line-height: 1.2; letter-spacing: .13em; font-weight: 400; }
 .hero-subtitle { position: relative; z-index: 1; margin-top: 17px; font-size: clamp(17px, 2vw, 23px); color: var(--muted); font-weight: 300; }
 .hero-art { position: relative; width: min(800px, 88%); margin: -24px auto -28px; }
@@ -64,7 +64,7 @@ figcaption span { color: var(--muted); text-align: right; }
 .iphone img { border-radius: 23px; }
 .ipad img { border-radius: 17px; }
 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-block: 66px; margin-top: 60px; border-block: 1px solid var(--line); }
-.feature-number { font: 12px/1.5 "SFMono-Regular", Consolas, monospace; color: var(--accent); }
+.feature-number { font-size: 12px; line-height: 1.5; color: var(--accent); }
 .features h3 { margin-top: 16px; font-size: 22px; letter-spacing: -.025em; }
 .features p { margin-top: 12px; color: var(--muted); }
 .support-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
