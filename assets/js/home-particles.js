@@ -9,7 +9,7 @@
       color: { value: "#ffffff" },
       shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
       opacity: {
-        value: 0.5,
+        value: 0.08,
         random: false,
         anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
       },
@@ -18,7 +18,7 @@
         random: true,
         anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
       },
-      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.1, width: 1 },
+      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.015, width: 1 },
       move: {
         enable: true,
         speed: 3,
@@ -39,7 +39,7 @@
         resize: true
       },
       modes: {
-        grab: { distance: 140, line_linked: { opacity: 1 } },
+        grab: { distance: 140, line_linked: { opacity: 0.04 } },
         push: { particles_nb: 4 }
       }
     },
