@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Mobile apps by Medet Tleugabyluly." />
   <meta name="google-site-verification" content="GrIvL9sIkHrR5XcntmgykehXVXLaQOiAVbVvfr1J-vw" />
-  <meta name="theme-color" content="#050505" />
+  <meta name="theme-color" content="#000000" />
   <link rel="canonical" href="https://tsx.nz/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +14,7 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #050505;
+      --bg: #000000;
       --text: #fafafa;
       --muted: #888;
       --hover: #22d3ee;
@@ -36,6 +36,16 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    #particles-js {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: #000;
+      pointer-events: none;
+    }
+
+    #particles-js canvas { display: block; width: 100%; height: 100%; }
+
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--hover); outline-offset: 4px; }
 
@@ -53,6 +63,8 @@
     .skip-link:focus { transform: translateY(0); }
 
     .page {
+      position: relative;
+      z-index: 1;
       width: min(760px, calc(100% - 64px));
       min-height: 100vh;
       display: flex;
@@ -172,6 +184,7 @@
   </style>
 </head>
 <body>
+  <div id="particles-js" aria-hidden="true"></div>
   <a class="skip-link" href="#apps">Skip to apps</a>
   <main class="page">
     <header>
@@ -199,6 +212,9 @@
 
     <footer>© 2026 Medet Tleugabyluly Limited</footer>
   </main>
+
+  <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script defer src="/assets/js/home-particles.js"></script>
 
   <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"20669a9308a346c8a7b2200cf7f67fc9"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
