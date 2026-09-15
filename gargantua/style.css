@@ -53,6 +53,9 @@ h1 { position: relative; z-index: 1; margin-top: 20px; padding-left: .13em; font
 .upcoming-objects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; margin: 0; padding: 0; list-style: none; }
 .upcoming-objects li { padding-block: 20px; border-bottom: 1px solid var(--line); }
 .upcoming-objects li span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; }
+.upcoming-features { margin-top: 38px; padding-top: 30px; border-top: 1px solid var(--line); }
+.upcoming-features h3 { margin-top: 10px; font-size: 24px; letter-spacing: -.025em; }
+.upcoming-features ul { display: flex; flex-wrap: wrap; gap: 12px 36px; margin: 16px 0 0; padding: 0; list-style: none; color: var(--muted); }
 .mac-gallery { width: min(100%, 660px); margin-inline: auto; }
 .mac-shot { padding: 12px; border: 1px solid #393632; border-radius: 16px; background: #141311; }
 .mac-shot img { width: 100%; border-radius: 7px; }
