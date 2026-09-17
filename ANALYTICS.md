@@ -14,7 +14,13 @@ Configured 17 September 2026 using standard (free) Google Analytics 4.
 
 All 11 HTML pages at the apex site load `/assets/js/analytics.js`. This does not add tracking to separately hosted subdomains or mobile apps. The previous Cloudflare beacon has been removed from the homepage.
 
-The Google script loads only after acceptance. Decline blocks initialization. Visitors can reopen Analytics preferences at the bottom of every page. Choices expire after 180 days; unavailable browser storage limits a choice to the current page. Analytics cookies use the apex host only, with a 180-day expiry. Withdrawal disables new collection and removes these cookies. Previously collected events may already be queued or stored by Google.
+The smaller panel is approximately 114px tall at a 390px mobile viewport (previously 230px), with two equal 44px-high action buttons.
+
+With no saved choice, the browser requests Cloudflare's public `/cdn-cgi/trace` endpoint using omitted credentials, no page referrer, and no cache. Only the country code is used; the returned IP and other diagnostic fields are not stored. The 1.5-second timeout, malformed/unknown country, unsupported country-name API, and network errors all fall back to opt-in. This public diagnostic endpoint has no application SLA; failure must never enable tracking.
+
+EEA countries, the UK, Switzerland, and the associated territories listed in `optInCountries` require prior acceptance. Other recognised country codes use default-on Analytics after lookup, with a clear notice and Turn off / Keep enabled controls. Ignoring the default-on notice leaves tracking on; ignoring an opt-in prompt leaves it off. The country policy follows Google's regional consent requirements and should be maintained if requirements or target markets change.
+
+A saved explicit choice takes precedence in every region and avoids an unnecessary country request. Global Privacy Control or Do Not Track suppress Analytics even if a prior saved choice was granted. Visitors can reopen Analytics preferences at the bottom of every page. Choices expire after 180 days; unavailable browser storage limits a choice to the current page. Automatic regional decisions are not stored as explicit acceptance. Analytics cookies use the apex host only, with a 180-day expiry. Valid visitor cookies are preserved during the next country check so page navigation does not create a new user/session. Withdrawal disables new collection and removes these cookies. Previously collected events may already be queued or stored by Google.
 
 The tag denies advertising storage, advertising user data and advertising personalisation; Google signals and advertising personalisation signals are disabled. Website privacy details are in `/privacy.html`; app policies link to them separately from their app disclosures.
 
@@ -24,11 +30,17 @@ The tag denies advertising storage, advertising user data and advertising person
 - Traffic acquisition: sources and campaigns that brought visitors to the website.
 - Events / Explore: enhanced measurement sends `click` for outbound links. Filter `Link domain` to `apps.apple.com` or `play.google.com`, and use `Link URL` to distinguish apps. These are clicks, not installs or purchases.
 - Enhanced measurement also includes scrolls (90% depth) and other supported interactions. The local HTML video is not a YouTube video, so automatic YouTube engagement tracking does not measure it.
-- Browser blocking and declined consent reduce coverage. Data collection starts with this installation; Cloudflare history is not imported.
+- Browser blocking, privacy signals, declined consent, and unsuccessful country lookup can reduce coverage. Data collection starts with this installation; Cloudflare history is not imported.
 - The planned YouTube ad opens the App Store directly, so those visits bypass this website. Google Ads and Apple campaign reporting remain separate. No campaign launch, paid upgrade, conversion import, or in-app SDK is part of this migration.
 
 ## Verification
 
-With Node and Playwright available, run `node tests/analytics.cjs`. The tests serve the real site locally and intercept outside requests so automated test visits do not enter Analytics. They check no tag before acceptance, persistence, single initialization, ad settings, withdrawal/cookie removal, expiry, unavailable storage, and focus/scroll behavior.
+With Node and Playwright available, run `node tests/analytics.cjs` and `node tests/analytics-regional.cjs`. The tests serve the real site locally and intercept outside requests so automated test visits do not enter Analytics. They check the opt-in path, regional default-on behavior, persistence, single initialization, ad settings, withdrawal/cookie removal, expiry, unavailable storage, focus/scroll behavior, browser privacy signals, cookie continuity and a late country response after Decline.
 
 An integration check with the actual Google script emitted `page_view` and `click` with `link_domain=apps.apple.com`; collection requests were intercepted locally. Recheck the deployed site and Realtime after publishing. Standard reports can lag behind Realtime.
+
+## Regional policy references
+
+- https://www.google.com/about/company/user-consent-policy/
+- https://www.google.com/about/company/user-consent-policy-help/
+- https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/

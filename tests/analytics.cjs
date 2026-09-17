@@ -24,6 +24,7 @@ const server = http.createServer((req, res) => {
     await context.route('**/*', route => {
       if (route.request().url().startsWith(base)) return route.continue();
       requests.push(route.request().url());
+      if (route.request().url().includes('/cdn-cgi/trace')) return route.fulfill({status:200,contentType:'text/plain',body:'loc=GB'});
       // Keep tests offline and prevent test visits from reaching real Analytics.
       return route.fulfill({status:200,contentType:'text/javascript',body:''});
     });
@@ -56,7 +57,7 @@ const server = http.createServer((req, res) => {
     assert.equal(tagRequests().length,2,'Accepted choice must carry to the next page');
     await context.addCookies([{name:'_ga',value:'example',url:base},{name:'_ga_D6L9JQQSBH',value:'example',url:base}]);
     await page.getByRole('button',{name:'Analytics preferences',exact:true}).click();
-    await page.getByRole('button',{name:'Decline',exact:true}).click();
+    await page.getByRole('button',{name:'Turn off',exact:true}).click();
     assert.equal(await page.evaluate(()=>window['ga-disable-G-D6L9JQQSBH']),true,'Revocation must disable the active tag');
     assert.equal((await context.cookies()).filter(c=>c.name.startsWith('_ga')).length,0,'Revocation must remove Analytics cookies');
     await go('/');
@@ -70,7 +71,7 @@ const server = http.createServer((req, res) => {
     console.log('PASS: consent gating, persistence, single initialization, advertising disabled, revocation, expiry');
     await context.close();
     const blocked = await browser.newContext();
-    await blocked.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.fulfill({status:200,body:''}));
+    await blocked.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.fulfill({status:200,body:route.request().url().includes('/cdn-cgi/trace')?'loc=GB':''}));
     await blocked.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new Error('blocked')};Storage.prototype.setItem=()=>{throw new Error('blocked')};});
     const p = await blocked.newPage();
     await p.goto(base+'/');
