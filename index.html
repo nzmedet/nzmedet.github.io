@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Explore apps by MEDET TLEUGABYLULY LIMITED: CELL's 3D human cell atlas, Black Hole Playground's cosmic scenes, Cosmic Calendar, and tools for everyday life." />
+  <meta name="description" content="Explore apps by MEDET TLEUGABYLULY LIMITED: Black Hole Playground's cosmic scenes, CELL's 3D human cell atlas, Cosmic Calendar, and tools for everyday life." />
   <meta name="google-site-verification" content="GrIvL9sIkHrR5XcntmgykehXVXLaQOiAVbVvfr1J-vw" />
   <meta name="google-site-verification" content="WUEoYBKCM1nybo8Yn53LgHkMWRiHzd8FlgSHetRlASw" />
   <meta name="theme-color" content="#000000" />
@@ -125,6 +125,29 @@
 
     .app { min-width: 0; }
 
+    .app-featured {
+      grid-column: 1 / -1;
+      padding: 22px;
+      border: 1px solid rgba(34, 211, 238, .22);
+      border-radius: 16px;
+      background: rgba(5, 18, 24, .65);
+    }
+
+    .featured-label {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--hover);
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .app-featured .app-name { font-size: 1.375rem; }
+    .app-featured .app-icon { width: 64px; height: 64px; border-radius: 14px; }
+    .app-featured .app-description,
+    .app-featured .platforms { margin-left: 78px; }
+
     .app-icon {
       width: 48px;
       height: 48px;
@@ -186,6 +209,11 @@
 
       .apps { margin-top: 48px; }
       .app-list { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .app-featured { padding: 18px; }
+      .app-featured .app-name { font-size: 1.25rem; }
+      .app-featured .app-description,
+      .app-featured .platforms { margin-left: 0; }
+      .app-featured .app-description { margin-top: 12px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -208,8 +236,8 @@
 
     <section class="apps" id="apps" aria-label="Apps">
       <ul class="app-list">
+        <li class="app app-featured"><span class="featured-label">Featured</span><a class="app-name" href="/blackholeplayground/"><img class="app-icon" src="/blackholeplayground/images/icon.png" width="64" height="64" alt="" /><span class="app-title">Black Hole Playground</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Shape cinematic black holes and explore neutron stars and pulsars.</p><div class="platforms"><a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" alt="View Black Hole Playground on the App Store" /></a><a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/macstore.svg" alt="View Black Hole Playground on the Mac App Store" /></a></div></li>
         <li class="app"><a class="app-name" href="/cell/"><img class="app-icon" src="/cell/images/icon.png" width="48" height="48" alt="" /><span class="app-title">CELL</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Explore human cells in an interactive 3D atlas.</p><div class="platforms"><a href="https://play.google.com/store/apps/details?id=nz.medett.cell" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/playstore.svg" alt="View CELL on Google Play" /></a></div></li>
-        <li class="app"><a class="app-name" href="/blackholeplayground/"><img class="app-icon" src="/blackholeplayground/images/icon.png" width="48" height="48" alt="" /><span class="app-title">Black Hole Playground</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Shape cinematic black holes and explore neutron stars and pulsars.</p><div class="platforms"><a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" alt="View Black Hole Playground on the App Store" /></a><a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/macstore.svg" alt="View Black Hole Playground on the Mac App Store" /></a></div></li>
         <li class="app"><a class="app-name" href="https://foodlens.nz/" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/foodlens.png" width="48" height="48" alt="" /><span class="app-title">foodlens.nz</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Visual restaurant menus with 3D dish previews.</p></li>
         <li class="app"><a class="app-name" href="https://beheard.tsx.nz" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/beheard.png" width="48" height="48" alt="" /><span class="app-title">beheard</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Connect with real people through voice calls.</p><div class="platforms"><a href="https://apps.apple.com/us/app/beheard/id6745767524" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" alt="Download on the App Store" /></a><a href="https://play.google.com/store/apps/details?id=nz.medett.beheard" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/playstore.svg" alt="Get it on Google Play" /></a></div></li>
         <li class="app"><a class="app-name" href="https://nudge.tsx.nz" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/nudge.png" width="48" height="48" alt="" /><span class="app-title">Nudge</span><span class="app-arrow" aria-hidden="true">↗</span></a><p class="app-description">Manage shared bills, chores, and life with flatmates.</p><div class="platforms"><a href="https://apps.apple.com/us/app/nudge-flatmate-manager/id6763093170" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" alt="Download on the App Store" /></a><a href="https://play.google.com/store/apps/details?id=nz.medett.nudge" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/playstore.svg" alt="Get it on Google Play" /></a></div></li>
