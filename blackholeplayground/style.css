@@ -60,13 +60,13 @@ h1 span { display: block; }
 .stellar-objects li { padding-block: 20px; border-bottom: 1px solid var(--line); }
 .stellar-objects li span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; }
 .mac-gallery { width: min(100%, 840px); margin-inline: auto; }
-.mac-shot { padding: 12px; border: 1px solid #393632; border-radius: 16px; background: #141311; }
-.mac-shot img { width: 100%; border-radius: 7px; }
+/* .mac-shot { padding: 12px; border: 1px solid #393632; border-radius: 16px; background: #141311; } */
+/* .mac-shot img { width: 100%; border-radius: 7px; } */
 figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 17px; font-size: 14px; }
 figcaption span { color: var(--muted); text-align: right; }
 .mobile-gallery { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 36px; margin-top: 52px; }
-.mobile-stage { min-height: 390px; display: flex; align-items: center; justify-content: center; padding: 28px; background: #0d0c0b; border: 1px solid #201e1b; border-radius: 4px; }
-.mobile-stage img { width: 100%; border: 6px solid #292724; box-shadow: 0 18px 45px #0008; }
+/* .mobile-stage { min-height: 390px; display: flex; align-items: center; justify-content: center; padding: 28px; background: #0d0c0b; border: 1px solid #201e1b; border-radius: 4px; } */
+/* .mobile-stage img { width: 100%; border: 6px solid #292724; box-shadow: 0 18px 45px #0008; } */
 .iphone img { border-radius: 23px; }
 .ipad img { border-radius: 17px; }
 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-block: 66px; margin-top: 60px; border-block: 1px solid var(--line); }
