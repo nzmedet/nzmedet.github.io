@@ -26,7 +26,7 @@ The tag denies advertising storage, advertising user data and advertising person
 
 ## Reading results
 
-- Pages and screens: page views and engagement; filter the page path to `/gargantua/` for Gargantua.
+- Pages and screens: page views and engagement; filter the page path to `/blackholeplayground/` for Black Hole Playground.
 - Traffic acquisition: sources and campaigns that brought visitors to the website.
 - Events / Explore: enhanced measurement sends `click` for outbound links. Filter `Link domain` to `apps.apple.com` or `play.google.com`, and use `Link URL` to distinguish apps. These are clicks, not installs or purchases.
 - Enhanced measurement also includes scrolls (90% depth) and other supported interactions. The local HTML video is not a YouTube video, so automatic YouTube engagement tracking does not measure it.

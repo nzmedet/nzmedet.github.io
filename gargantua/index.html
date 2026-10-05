@@ -3,177 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#050505" />
-  <title>Gargantua — Black Hole Viewer for Mac, iPhone &amp; iPad</title>
-  <meta name="description" content="Explore a cinematic black hole on Mac, iPhone, and iPad. Orbit, zoom, and capture images of gravitational lensing and glowing gas." />
-  <link rel="canonical" href="https://tsx.nz/gargantua/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=9" />
-  <script defer src="/assets/js/analytics.js?v=2"></script>
+  <title>Black Hole Playground</title>
+  <link rel="canonical" href="https://tsx.nz/blackholeplayground/" />
+  <meta http-equiv="refresh" content="0; url=https://tsx.nz/blackholeplayground/" />
+  <script>window.location.replace("https://tsx.nz/blackholeplayground/" + window.location.search + window.location.hash);</script>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 48px 24px; background: #000; color: #fafafa; font: 17px/1.6 system-ui, sans-serif; }
+    a { color: #e8b88c; }
+  </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header wrap">
-    <a class="home" href="/" aria-label="tsx home">&lt;tsx<span> /</span>&gt;</a>
-    <nav aria-label="Main navigation">
-      <a href="#experience">Explore</a>
-      <a href="#support">Support</a>
-      <a class="nav-buy" href="#purchase">Get the app <span aria-hidden="true">&nbsp;↗</span></a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero" aria-labelledby="app-title">
-      <p class="eyebrow">A black hole. All your screens.</p>
-      <h1 id="app-title">GARGANTUA</h1>
-      <p class="hero-subtitle">A cinematic black hole viewer.</p>
-      <div class="hero-art">
-        <video id="black-hole-video" width="1920" height="1246" autoplay muted loop playsinline preload="metadata" poster="images/black-hole.jpg" aria-label="An animated view of glowing gas orbiting a black hole in Gargantua.">
-          <source src="images/black-hole.mp4?v=2" type="video/mp4" />
-          <img src="images/black-hole.jpg" width="2000" height="1250" alt="Glowing gas surrounds a black hole in Gargantua." />
-        </video>
-      </div>
-      <div class="hero-bottom">
-        <p>Orbit the darkness. Follow the light.<br />Explore a black hole from your own point of view.</p>
-        <div class="store-links">
-          <a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/appstore.svg" width="135" height="40" alt="View Gargantua on the App Store" /></a>
-          <a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/macstore.svg" width="156" height="40" alt="View Gargantua on the Mac App Store" /></a>
-        </div>
-        <p class="purchase-note"><strong>Available on Mac, iPhone, and iPad</strong></p>
-      </div>
-    </section>
-
-    <section class="purchase-band wrap" id="purchase" aria-labelledby="purchase-title">
-      <div>
-        <h2 id="purchase-title">Buy once. Explore everywhere.</h2>
-        <p>One purchase for your Mac, iPhone, and iPad.</p>
-      </div>
-      <div class="price">$4.99</div>
-    </section>
-
-    <section class="section wrap" id="coming-soon" aria-labelledby="coming-soon-title">
-      <div class="section-intro">
-        <div>
-          <p class="eyebrow">Available now</p>
-          <h2 id="coming-soon-title">More of the universe to explore.</h2>
-        </div>
-        <p>Explore these black holes and neutron stars now in Gargantua. Included with your purchase at no extra cost.</p>
-      </div>
-      <ul class="upcoming-objects">
-        <li>Gargantua<span>Fictional supermassive black hole</span></li>
-        <li>TON 618<span>Supermassive black hole</span></li>
-        <li><a href="https://en.wikipedia.org/wiki/RX_J1856.5%E2%88%923754" target="_blank" rel="noopener noreferrer">RX J1856.5−3754</a><span>Neutron star</span></li>
-        <li><a href="https://en.wikipedia.org/wiki/Vela_Pulsar" target="_blank" rel="noopener noreferrer">Vela Pulsar</a><span>Pulsar</span></li>
-        <li>GW150914<span>Binary black hole merger</span></li>
-        <li><a href="https://en.wikipedia.org/wiki/Gaia_BH1" target="_blank" rel="noopener noreferrer">Gaia BH1</a><span>Dormant black hole</span></li>
-      </ul>
-      <div class="upcoming-features">
-        <p class="eyebrow">Coming soon — free update</p>
-        <h3>New ways to explore.</h3>
-        <ul aria-label="Upcoming features">
-          <li>Playground</li>
-          <li>Time Differential</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section wrap" id="experience" aria-labelledby="experience-title">
-      <div class="section-intro">
-        <div>
-          <p class="eyebrow">Your own perspective</p>
-          <h2 id="experience-title">Space to get lost in.</h2>
-        </div>
-        <p>Glowing gas. Light bent by gravity. Move around the scene and watch a familiar silhouette become something new.</p>
-      </div>
-      <figure class="mac-gallery">
-        <div class="mac-shot"><img src="images/mac.jpg?v=1.1-build5" width="1835" height="768" loading="lazy" alt="Gargantua on Mac with the black hole and its camera, quality, and screenshot controls." /></div>
-        <figcaption>Gargantua on Mac <span>A bigger view of the unknown.</span></figcaption>
-      </figure>
-      <div class="mobile-gallery">
-        <figure>
-          <div class="mobile-stage iphone"><img src="images/iphone.jpg?v=2" width="1600" height="738" loading="lazy" alt="The iPhone version of Gargantua in landscape, with orbit, zoom, and screenshot controls." /></div>
-          <figcaption>Gargantua on iPhone <span>A little escape, anywhere.</span></figcaption>
-        </figure>
-        <figure>
-          <div class="mobile-stage ipad"><img src="images/ipad.jpg?v=2" width="1600" height="1199" loading="lazy" alt="The iPad version of Gargantua showing a glowing black hole above its touch controls." /></div>
-          <figcaption>Gargantua on iPad <span>Reach out. Change your view.</span></figcaption>
-        </figure>
-      </div>
-      <div class="features">
-        <article>
-          <span class="feature-number">01 / EXPLORE</span>
-          <h3>Find your angle.</h3>
-          <p>Orbit, pan, and zoom to frame the scene. Get close to the glowing disk or pull back and take it all in.</p>
-        </article>
-        <article>
-          <span class="feature-number">02 / CAPTURE</span>
-          <h3>Keep the view.</h3>
-          <p>Capture a clean image without the controls. Turn a moment of exploration into your next wallpaper.</p>
-        </article>
-        <article>
-          <span class="feature-number">03 / MAKE IT YOURS</span>
-          <h3>Set your pace.</h3>
-          <p>Adjust visual quality and frame rate to suit your device. Hide the interface and let the scene fill your screen.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section wrap support-layout" id="support" aria-labelledby="support-title">
-      <div class="support-heading">
-        <p class="eyebrow">Mission support</p>
-        <h2 id="support-title">A few things<br />before you drift off.</h2>
-        <p>Need a hand? Use the contact details in our App Store listing. Include your device model, operating system version, and a short description of what happened.</p>
-        <a href="https://apps.apple.com/us/app/gargantua-black-hole-viewer/id6809387923" target="_blank" rel="noopener noreferrer">Support via the App Store <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="questions">
-        <details>
-          <summary>How do I explore on iPhone and iPad?</summary>
-          <div class="answer"><p>Drag with one finger to orbit, use two fingers to pan, and pinch to zoom. Tap Reset View to recenter the camera. The on-screen toolbar also lets you change quality, frame rate, and hide the interface.</p></div>
-        </details>
-        <details>
-          <summary>What are the Mac controls?</summary>
-          <div class="answer">
-            <ul>
-              <li>Left-click and drag to orbit, with unlimited vertical rotation.</li>
-              <li>Right-click and drag to pan.</li>
-              <li>Pinch or scroll to zoom.</li>
-              <li>Use Reset View to recenter the camera.</li>
-              <li>Press <kbd>H</kbd> to hide the interface, <kbd>F</kbd> for fullscreen, or <kbd>R</kbd> to reset.</li>
-            </ul>
-          </div>
-        </details>
-        <details>
-          <summary>How do I capture a wallpaper?</summary>
-          <div class="answer"><p>Choose Screenshot to capture a clean image without the interface.</p><p>On Mac, Gargantua saves a PNG and reveals it in Finder. Copy it wherever you like or select it in macOS Wallpaper settings.</p></div>
-        </details>
-        <details>
-          <summary>Which devices are supported?</summary>
-          <div class="answer"><p>Gargantua is built for Mac, iPhone, and iPad. The Mac version requires Apple silicon and macOS 13 or later. Check the App Store listing for compatibility with your iPhone or iPad.</p></div>
-        </details>
-        <details>
-          <summary>Can I reduce the graphics workload?</summary>
-          <div class="answer"><p>Rendering a black hole uses your device’s GPU. Choose 30 FPS and Performance quality for a lighter experience. On Mac, rendering pauses when the app is in the background.</p></div>
-        </details>
-        <details>
-          <summary>Is this a scientific simulation?</summary>
-          <div class="answer"><p>Gargantua is an artistic visualization inspired by black hole physics, including gravitational lensing and the glow of an accretion disk.</p></div>
-        </details>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer wrap">
-    <p>© 2026 MEDET TLEUGABYLULY LIMITED</p>
-    <div><a href="privacy.html">Privacy policy</a><a href="/">More apps <span aria-hidden="true">↗</span></a></div>
-  </footer>
-  <script>
-    const video = document.querySelector('#black-hole-video');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reducedMotion.matches) video.pause();
-    reducedMotion.addEventListener('change', event => {
-      if (event.matches) video.pause();
-    });
-  </script>
+  <p>Gargantua is now Black Hole Playground.</p>
+  <p><a href="https://tsx.nz/blackholeplayground/">Continue to Black Hole Playground</a></p>
 </body>
 </html>
