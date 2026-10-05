@@ -84,13 +84,21 @@
       letter-spacing: -.04em;
     }
 
-    .role { margin: 5px 0 0; color: var(--muted); }
+    .header-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 5px;
+    }
+
+    .role { margin: 0; color: var(--muted); }
 
     .contacts {
       display: flex;
       flex-wrap: wrap;
       gap: 8px 16px;
-      margin-top: 22px;
+      margin: 0;
       font-size: .875rem;
     }
 
@@ -150,13 +158,14 @@
     }
 
     .app-featured .app-name { font-size: 1.375rem; }
-    .app-featured .app-icon { width: 64px; height: 64px; border: 1px solid #a6a6a6; border-radius: 14px; }
+    .app-featured .app-icon { width: 64px; height: 64px; border-radius: 14px; }
     .app-featured .app-description,
     .app-featured .platforms { margin-left: 78px; }
 
     .app-icon {
       width: 48px;
       height: 48px;
+      border: 1px solid #a6a6a6;
       border-radius: 11px;
       object-fit: cover;
     }
@@ -235,10 +244,12 @@
   <main class="page">
     <header>
       <h1>medet</h1>
-      <p class="role">builds apps</p>
-      <nav class="contacts" aria-label="Contact and profiles">
-        <a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">email</a>
-      </nav>
+      <div class="header-meta">
+        <p class="role">builds apps</p>
+        <nav class="contacts" aria-label="Contact">
+          <a href="mailto:nzmedet@gmail.com?subject=Hello%20from%20your%20portfolio">contact</a>
+        </nav>
+      </div>
     </header>
 
     <section class="apps" id="apps" aria-label="Apps">
