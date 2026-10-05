@@ -126,17 +126,23 @@
     .app { min-width: 0; }
 
     .app-featured {
+      position: relative;
       grid-column: 1 / -1;
-      padding: 22px;
-      border: 1px solid rgba(34, 211, 238, .22);
-      border-radius: 16px;
-      background: rgba(5, 18, 24, .65);
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, .25);
     }
 
     .featured-label {
+      position: absolute;
+      top: 0;
+      left: 16px;
       display: block;
-      margin-bottom: 12px;
-      color: var(--hover);
+      padding: 0 8px;
+      transform: translateY(-50%);
+      background: var(--bg);
+      color: #b8b8b8;
       font-size: .6875rem;
       font-weight: 600;
       letter-spacing: .12em;
@@ -209,7 +215,8 @@
 
       .apps { margin-top: 48px; }
       .app-list { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-      .app-featured { padding: 18px; }
+      .app-featured { padding: 20px; }
+      .featured-label { left: 12px; }
       .app-featured .app-name { font-size: 1.25rem; }
       .app-featured .app-description,
       .app-featured .platforms { margin-left: 0; }
