@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://tsx.nz/blackholeplayground/play/" />
+  <title>Play Black Hole Playground</title>
+  <meta name="description" content="Explore Black Hole Playground for free in a desktop browser." />
+  <link rel="icon" type="image/png" href="../images/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="playground-app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to playground</a>
+  <header class="site-header wrap">
+    <a class="brand" href="../" aria-label="Black Hole Playground home">
+      <img src="../images/icon.png" width="48" height="48" alt="" />
+      <span>Black Hole Playground</span>
+    </a>
+    <nav class="header-actions" aria-label="Website and app downloads">
+      <a class="back" href="../">Back to website <span aria-hidden="true">↗</span></a>
+      <a class="store-link" href="https://apps.apple.com/us/app/black-hole-playground/id6809387923" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/icons/appstore.svg" width="135" height="40" alt="View Black Hole Playground on the App Store" />
+      </a>
+      <a class="store-link" href="https://apps.apple.com/us/app/black-hole-playground/id6809387923" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/icons/macstore.svg" width="156" height="40" alt="View Black Hole Playground on the Mac App Store" />
+      </a>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    <div id="device-check" class="device-check" role="status">Preparing your playground…</div>
+    <section id="desktop-playground" aria-label="Desktop playground" hidden>
+      <div id="stage" class="stage">
+        <canvas id="unity-canvas" width="960" height="540" tabindex="0" aria-label="Interactive Black Hole Playground" hidden></canvas>
+        <div id="loading-panel" class="loading-panel" role="status" aria-live="polite" hidden>
+          <h2>Loading…</h2>
+          <progress id="loading-progress" max="1" value="0" aria-label="Playground loading progress"></progress>
+          <p id="loading-percent">0%</p>
+        </div>
+        <div id="error-panel" class="error-panel" role="alert" hidden>
+          <h2>We couldn’t open the playground.</h2>
+          <p id="error-message"></p>
+          <button id="retry" class="primary-button" type="button">Try again</button>
+        </div>
+        <div id="runtime-message" class="runtime-message" role="alert" hidden></div>
+      </div>
+    </section>
+    <section id="mobile-gate" class="mobile-gate" aria-labelledby="mobile-title" hidden>
+      <img class="mobile-icon" src="../images/icon.png" width="96" height="96" alt="" />
+      <p class="eyebrow">Take your universe with you</p>
+      <h1 id="mobile-title">Explore in the app.</h1>
+      <p>This browser playground is for computers.<br />On a phone or tablet, use the app for touch controls and a smoother experience.</p>
+      <a class="primary-button store-button" href="https://apps.apple.com/us/app/black-hole-playground/id6809387923" target="_blank" rel="noopener noreferrer">View on the App Store <span aria-hidden="true">↗</span></a>
+      <p class="coming-soon">Google Play coming soon.</p>
+      <a class="mobile-back" href="../">Explore the website</a>
+    </section>
+    <noscript><p class="no-script">Enable JavaScript to open the desktop playground. You can also <a href="../">explore the website</a>.</p></noscript>
+  </main>
+</body>
+</html>

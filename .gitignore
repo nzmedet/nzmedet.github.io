@@ -1,0 +1,21 @@
+# Unity build tooling and source patches belong in the private Gargantua repo.
+/tools/playground-web/
+
+# The public web player contains runtime output, never a Unity source project.
+/blackholeplayground/play/Assets/
+/blackholeplayground/play/Packages/
+/blackholeplayground/play/ProjectSettings/
+/blackholeplayground/play/Library/
+/blackholeplayground/play/Logs/
+/blackholeplayground/play/Temp/
+/blackholeplayground/play/UserSettings/
+
+# Keep development/debug artifacts out of the public web player.
+/blackholeplayground/play/**/*.cs
+/blackholeplayground/play/**/*.shader
+/blackholeplayground/play/**/*.hlsl
+/blackholeplayground/play/**/*.compute
+/blackholeplayground/play/**/*.patch
+/blackholeplayground/play/**/*.map
+/blackholeplayground/play/**/*.symbols.json
+/blackholeplayground/play/**/*.pdb

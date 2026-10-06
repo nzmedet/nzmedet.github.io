@@ -1,0 +1,10 @@
+{
+  "loaderUrl": "Build/Playground.loader.js",
+  "dataUrl": "Build/Playground.data.unityweb",
+  "frameworkUrl": "Build/Playground.framework.js.unityweb",
+  "codeUrl": "Build/Playground.wasm.unityweb",
+  "streamingAssetsUrl": "StreamingAssets",
+  "companyName": "Event Horizon",
+  "productName": "Black Hole Playground",
+  "productVersion": "1.2"
+}
